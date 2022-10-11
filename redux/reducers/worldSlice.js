@@ -4,8 +4,8 @@ const initialState = {
   grid: [],
   startX: 0,
   startY: 0,
-  endX: 500,
-  endY: 500,
+  endX: 30,
+  endY: 30,
   camX: 0,
   camY: 0,
   camZ: 10,
@@ -16,7 +16,7 @@ const worldSlice = createSlice({
   initialState,
   reducers: {
     setGrid: (state, action) => {
-      state.startX = action.payload;
+      state.grid = action.payload;
     },
     setStartX: (state, action) => {
       state.startX = action.payload;
