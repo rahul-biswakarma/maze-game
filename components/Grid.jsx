@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import Box from "./Box";
 import Stack from "../utils/stack";
 import getNeighbour from "../utils/getNeighbours";
 
@@ -52,19 +53,7 @@ const Grid = () => {
     <>
       {grid.map((col) => {
         return col.map((corr) => {
-          return corr.blocked === true ? (
-            <mesh
-              position={[corr.x, 0, corr.y]}
-              recieveShadow={true}
-              castShadow={true}
-              key={`x${corr.x}y${corr.y}`}
-            >
-              <boxGeometry />
-              <meshPhysicalMaterial color={"blue"} />
-            </mesh>
-          ) : (
-            <></>
-          );
+          return corr.blocked === true ? <Box corr={corr} z={0} /> : <></>;
         });
       })}
     </>

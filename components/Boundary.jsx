@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import Box from "/components/Box";
+
 const Boundary = () => {
   const startX = useSelector((state) => state.world.startX) - 1;
   const startY = useSelector((state) => state.world.startY) - 1;
@@ -18,24 +20,14 @@ const Boundary = () => {
   for (let i = startY + 1; i <= endY - 1; i++) {
     boundaryCoordinates.push({ x: startX, y: i });
   }
-  for (let i = startX + 1; i <= endX - 1; i++) {
+  for (let i = startY + 1; i <= endY - 1; i++) {
     boundaryCoordinates.push({ x: endX, y: i });
   }
 
   return (
     <>
       {boundaryCoordinates.map((corr) => {
-        return (
-          <mesh
-            position={[corr.x, 0, corr.y]}
-            recieveShadow={true}
-            castShadow={true}
-            key={`x${corr.x}y${corr.y}`}
-          >
-            <boxGeometry />
-            <meshPhysicalMaterial color={"red"} />
-          </mesh>
-        );
+        return <Box corr={corr} z={0} />;
       })}
     </>
   );

@@ -4,7 +4,7 @@ const initialState = {
   grid: [],
   startX: 0,
   startY: 0,
-  endX: 30,
+  endX: 20,
   endY: 30,
   camX: 0,
   camY: 0,
