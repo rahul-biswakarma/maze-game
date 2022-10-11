@@ -27,7 +27,7 @@ const Boundary = () => {
   return (
     <>
       {boundaryCoordinates.map((corr) => {
-        return <Box corr={corr} z={0} />;
+        return <Box key={`bound${corr.x}${corr.y}`} corr={corr} z={0} />;
       })}
     </>
   );

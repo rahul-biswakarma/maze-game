@@ -25,7 +25,7 @@ const Floor = () => {
             position={[corr.x, -2, corr.y]}
             recieveShadow={true}
             castShadow={true}
-            key={`x${corr.x}y${corr.y}`}
+            key={`floorx${corr.x}y${corr.y}`}
           >
             <boxBufferGeometry attach="geometry" args={[1, 2, 1]} />
             <meshStandardMaterial color="blue" />
@@ -35,13 +35,18 @@ const Floor = () => {
             position={[corr.x, -2, corr.y]}
             recieveShadow={true}
             castShadow={true}
-            key={`x${corr.x}y${corr.y}`}
+            key={`floorx${corr.x}y${corr.y}`}
           >
             <boxBufferGeometry attach="geometry" args={[1, 2, 1]} />
             <meshStandardMaterial color="red" />
           </mesh>
         ) : (
-          <Box corr={corr} z={-2} textureType="white" />
+          <Box
+            key={`floorx${corr.x}y${corr.y}`}
+            corr={corr}
+            z={-2}
+            textureType="white"
+          />
         );
       })}
     </>
